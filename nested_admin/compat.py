@@ -46,7 +46,7 @@ class OrderedSet(_OrderedSet):
         return "OrderedSet(%r)" % list(self)
 
 
-if MergeSafeMedia is None or stable_topological_sort is None:
+if (MergeSafeMedia is None or stable_topological_sort is None) and django.VERSION[0] < 5:
 
     def linearize_as_needed(l, dependency_graph):
         # Algorithm: DFS Topological sort
